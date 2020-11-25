@@ -17,4 +17,11 @@ export function route(app: Application) {
         .get(localityController.get)
         .put(localityController.put)
         .delete(localityController.remove)
+    //Services
+    app.route("/services")
+        .post(localityController.post);
+    app.route("/services/:id")
+        .get(localityController.get)
+        .put(localityController.put)
+        .delete(localityController.remove)
 }
