@@ -1,6 +1,7 @@
 import {Application} from "express"
 import * as localityController from "./controllers/localityController";
 import * as clientController from "./controllers/clientController"
+import * as dogController from "./controllers/dogController"
 
 export function route(app: Application) {
     // Clients
@@ -17,4 +18,11 @@ export function route(app: Application) {
         .get(localityController.get)
         .put(localityController.put)
         .delete(localityController.remove)
+    //Dogs
+    app.route("/dogs")
+        .post(dogController.post);
+    app.route("/dogs/:id")
+        .get(dogController.get)
+        .put(dogController.put)
+        .delete(dogController.remove)
 }
