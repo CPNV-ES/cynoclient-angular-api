@@ -16,3 +16,11 @@ export async function put(req: Request, res: Response) {
 export async function remove(req: Request, res: Response) {
     res.status(200).send("DONE " + req.params.id);
 }
+
+export async function getDogs(req: Request, res: Response) {
+    res.status(200).send("DONE " + req.params.id);
+}
+
+export async function getDog(req: Request, res: Response) {
+    res.status(200).send("DONE " + req.params.id);
+}

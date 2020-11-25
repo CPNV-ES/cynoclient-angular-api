@@ -64,5 +64,9 @@ export function route(app: Application) {
         .get(breedController.get)
         .put(breedController.put)
         .delete(breedController.remove)
-
+    //Clients-Dogs
+    app.route("/clients/:id/dogs")
+        .get(clientController.getDogs)
+    app.route("clients/:id/dogs/:id")
+        .get(clientController.getDog)
 }
