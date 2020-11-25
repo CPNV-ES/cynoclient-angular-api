@@ -61,3 +61,9 @@
 | GET    | https://example.com/diseases/{id} | show disease   |
 | PUT    | https://example.com/diseases/{id} | update disease |
 | DELETE | https://example.com/diseases/{id} | delete disease |
+
+# Clients-Dogs
+| Verbe  | URL                              | Comments      |
+| ------ | -------------------------------- | ------------- |
+| GET    | https://example.com/clients/{id}/dogs | show dogs of a client   |
+| GET    | https://example.com/clients/{id}/dogs/{id} | Get one particular dog of a client  |
