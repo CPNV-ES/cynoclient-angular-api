@@ -22,5 +22,5 @@ export async function getDogs(req: Request, res: Response) {
 }
 
 export async function getDog(req: Request, res: Response) {
-    res.status(200).send("DONE " + req.params.id);
+    res.status(200).send("DONE " + req.params.id + req.params.id1);
 }
