@@ -18,7 +18,6 @@ export function route(app: Application) {
         .get(localityController.get)
         .put(localityController.put)
         .delete(localityController.remove)
-<<<<<<< HEAD
     //Services
     app.route("/services")
         .post(localityController.post);
@@ -26,7 +25,6 @@ export function route(app: Application) {
         .get(localityController.get)
         .put(localityController.put)
         .delete(localityController.remove)
-=======
     //Dogs
     app.route("/dogs")
         .post(dogController.post);
@@ -34,5 +32,4 @@ export function route(app: Application) {
         .get(dogController.get)
         .put(dogController.put)
         .delete(dogController.remove)
->>>>>>> 6af4b2201c34f0ca83e2167d0c114b5629365f6c
 }
