@@ -1,7 +1,13 @@
 import {Application} from "express"
-import * as userController from "./routes/user";
+import * as clientController from "./controllers/clientController"
 
 export function route(app: Application) {
-    app.route("/user")
-        .get(userController.get);
+    // Clients
+    app.route("/clients")
+        .post(clientController.post);
+
+    app.route("/clients/:id")
+        .get(clientController.get)
+        .put(clientController.put)
+        .delete(clientController.remove);
 }
