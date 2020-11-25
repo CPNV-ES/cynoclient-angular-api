@@ -2,6 +2,7 @@ import {Application} from "express"
 import * as localityController from "./controllers/localityController";
 import * as clientController from "./controllers/clientController"
 import * as dogController from "./controllers/dogController"
+import * as categoryController from "./controllers/categoryController"
 
 export function route(app: Application) {
     // Clients
@@ -32,4 +33,17 @@ export function route(app: Application) {
         .get(dogController.get)
         .put(dogController.put)
         .delete(dogController.remove)
+
+
+
+
+
+
+    //Categories
+    app.route("/categories")
+        .post(categoryController.post);
+    app.route("/categories/:id")
+        .get(categoryController.get)
+        .put(categoryController.put)
+        .delete(categoryController.remove)
 }
