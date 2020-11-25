@@ -1,11 +1,11 @@
 import {Application} from "express"
-import * as localityController from "./controllers/localityController";
-import * as clientController from "./controllers/clientController"
-import * as dogController from "./controllers/dogController"
-import * as categoryController from "./controllers/categoryController"
-import * as consultationController from "./controllers/consultationController"
-import * as diseaseController from "./controllers/diseaseController"
-import * as breedController from "./controllers/breedController"
+import * as localityController from "./controllers/locality.controller";
+import * as clientController from "./controllers/client.controller"
+import * as dogController from "./controllers/dog.controller"
+import * as categoryController from "./controllers/category.controller"
+import * as consultationController from "./controllers/consultation.controller"
+import * as diseaseController from "./controllers/disease.controller"
+import * as breedController from "./controllers/breed.controller"
 
 export function route(app: Application) {
     // Clients
