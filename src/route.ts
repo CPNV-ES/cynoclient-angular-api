@@ -4,6 +4,7 @@ import * as clientController from "./controllers/clientController"
 import * as dogController from "./controllers/dogController"
 import * as categoryController from "./controllers/categoryController"
 import * as consultationController from "./controllers/consultationController"
+import * as breedController from "./controllers/breedController"
 
 export function route(app: Application) {
     // Clients
@@ -41,11 +42,19 @@ export function route(app: Application) {
         .get(categoryController.get)
         .put(categoryController.put)
         .delete(categoryController.remove)
-    //Consultation
+    //Consultations
     app.route("/consultations")
         .post(consultationController.post);
     app.route("/consultations/:id")
         .get(consultationController.get)
         .put(consultationController.put)
         .delete(consultationController.remove)
+    //Breeds
+    app.route("/breeds")
+        .post(breedController.post);
+    app.route("/breeds/:id")
+        .get(breedController.get)
+        .put(breedController.put)
+        .delete(breedController.remove)
+}
 }
