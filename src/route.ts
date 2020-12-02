@@ -10,58 +10,66 @@ import * as breedController from "./controllers/breed.controller"
 export function route(app: Application) {
     // Clients
     app.route("/clients")
-        .post(clientController.post);
+        .post(clientController.post)
+        .get(clientController.get);
     app.route("/clients/:id")
-        .get(clientController.get)
+        .get(clientController.getById)
         .put(clientController.put)
         .delete(clientController.remove);
     // Localites
     app.route("/localities")
-        .post(localityController.post);
+        .post(localityController.post)
+        .get(localityController.get);
     app.route("/localities/:id")
-        .get(localityController.get)
+        .get(localityController.getById)
         .put(localityController.put)
         .delete(localityController.remove)
     // Services
     app.route("/services")
-        .post(localityController.post);
+        .post(localityController.post)
+        .get(localityController.get);
     app.route("/services/:id")
-        .get(localityController.get)
+        .get(localityController.getById)
         .put(localityController.put)
         .delete(localityController.remove)
     // Dogs
     app.route("/dogs")
-        .post(dogController.post);
+        .post(dogController.post)
+        .get(dogController.get);
     app.route("/dogs/:id")
-        .get(dogController.get)
+        .get(dogController.getById)
         .put(dogController.put)
         .delete(dogController.remove)
     // Categories
     app.route("/categories")
-        .post(categoryController.post);
+        .post(categoryController.post)
+        .get(categoryController.get);
     app.route("/categories/:id")
-        .get(categoryController.get)
+        .get(categoryController.getById)
         .put(categoryController.put)
         .delete(categoryController.remove)
     // Consultations
     app.route("/consultations")
-        .post(consultationController.post);
+        .post(consultationController.post)
+        .get(categoryController.get);
     app.route("/consultations/:id")
-        .get(consultationController.get)
+        .get(consultationController.getById)
         .put(consultationController.put)
         .delete(consultationController.remove)
     // Diseases
     app.route("/diseases")
-        .post(consultationController.post);
+        .post(consultationController.post)
+        .get(localityController.get);
     app.route("/diseases/:id")
-        .get(diseaseController.get)
+        .get(diseaseController.getById)
         .put(diseaseController.put)
         .delete(diseaseController.remove)
     // Breeds
     app.route("/breeds")
-        .post(breedController.post);
+        .post(breedController.post)
+        .get(categoryController.get);
     app.route("/breeds/:id")
-        .get(breedController.get)
+        .get(breedController.getById)
         .put(breedController.put)
         .delete(breedController.remove)
     // Clients-Dogs
