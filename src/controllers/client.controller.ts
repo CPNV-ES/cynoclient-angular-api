@@ -25,12 +25,11 @@ export async function getById(req: Request, res: Response) {
 // GET
 export async function get(req: Request, res: Response) {
     try{
-        const clients = await Client.findAll();
+        const clients = await Client.findAll({include:Locality});
         res.status(200).send(clients);
     } catch (error){
         res.status(500).send("Internal Server Error")
     }
-
 }
 // PUT
 export async function put(req: Request, res: Response) {
