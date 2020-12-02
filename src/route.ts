@@ -10,9 +10,10 @@ import * as breedController from "./controllers/breed.controller"
 export function route(app: Application) {
     // Clients
     app.route("/clients")
-        .post(clientController.post);
+        .post(clientController.post)
+        .get(clientController.get);
     app.route("/clients/:id")
-        .get(clientController.get)
+        .get(clientController.getById)
         .put(clientController.put)
         .delete(clientController.remove);
     // Localites

@@ -1,7 +1,9 @@
 import express from "express";
 import {route} from "./route";
 import {Sequelize} from 'sequelize-typescript';
+import bodyParser from "body-parser"
 
+const parser = bodyParser;
 const port = 3000;
 const ip = "0.0.0.0";
 const app = express();
@@ -21,6 +23,9 @@ const sequelize =  new Sequelize({
 
 sequelize.authenticate()
 sequelize.sync();
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 route(app);
 
