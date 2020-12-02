@@ -1,4 +1,5 @@
-import {Table, Column, Model} from 'sequelize-typescript';
+import {Table, Column, Model, ForeignKey, BelongsTo} from 'sequelize-typescript';
+import {Locality} from './locality.model';
 
 @Table({timestamps: false})
 
@@ -20,6 +21,13 @@ export class Client extends Model<Client> {
 
     @Column
     street: string;
+
+    @ForeignKey(() => Locality)
+    @Column({field: "id_locality"})
+    idLocality: number;
+
+    @BelongsTo(() => Locality)
+    locality: Locality;
 
 
 }

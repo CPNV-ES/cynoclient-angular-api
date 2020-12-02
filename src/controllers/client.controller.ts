@@ -2,6 +2,7 @@ import {Request, Response} from "express";
 import { ClientRequest } from "http";
 import { where } from "sequelize/types";
 import {Client} from "../models/client.model";
+import { Locality } from "../models/locality.model";
 
 // POST
 export async function post(req: Request, res: Response) {
@@ -15,7 +16,7 @@ export async function post(req: Request, res: Response) {
 // GET BY ID
 export async function getById(req: Request, res: Response) {
     try{
-        const client = await Client.findByPk(req.params.id);
+        const client = await Client.findByPk(req.params.id,{include:Locality});
         res.status(200).send(client);
     } catch (error){
         res.status(404).send("Client not found")
@@ -29,6 +30,7 @@ export async function get(req: Request, res: Response) {
     } catch (error){
         res.status(500).send("Internal Server Error")
     }
+
 }
 // PUT
 export async function put(req: Request, res: Response) {
