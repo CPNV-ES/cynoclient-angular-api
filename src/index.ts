@@ -12,7 +12,7 @@ const sequelize =  new Sequelize({
   database: 'cynoclient',
   dialect: 'mariadb',
   username: 'root',
-  password: '',
+  password: 'root',
   // storage: ':memory:',
   // models: [__dirname + '/src/models/*.model.ts'],
   models: [__dirname + '/models/*.model.js'],
