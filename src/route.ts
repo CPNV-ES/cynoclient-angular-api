@@ -1,11 +1,11 @@
 import {Application} from "express"
-import * as clientController from "./controllers/client.controller"
+import * as clientController from "./controllers/client.controller";
 import * as localityController from "./controllers/locality.controller";
-// import * as dogController from "./controllers/dog.controller"
+import * as dogController from "./controllers/dog.controller"
 // import * as categoryController from "./controllers/category.controller"
 // import * as consultationController from "./controllers/consultation.controller"
 // import * as diseaseController from "./controllers/disease.controller"
-// import * as breedController from "./controllers/breed.controller"
+import * as breedController from "./controllers/breed.controller"
 // import * as serviceController from "./controllers/service.controller"
 
 export function route(app: Application) {
@@ -33,14 +33,14 @@ export function route(app: Application) {
     //     .get(serviceController.getById)
     //     .put(serviceController.put)
     //     .delete(serviceController.remove)
-    // // Dogs
-    // app.route("/dogs")
-    //     .post(dogController.post)
-    //     .get(dogController.get);
-    // app.route("/dogs/:id")
-    //     .get(dogController.getById)
-    //     .put(dogController.put)
-    //     .delete(dogController.remove)
+    // Dogs
+    app.route("/dogs")
+        .post(dogController.post)
+        .get(dogController.get)
+     app.route("/dogs/:id")
+        .get(dogController.getById)
+        .put(dogController.put)
+    //   .delete(dogController.remove)
     // // Categories
     // app.route("/categories")
     //     .post(categoryController.post)
@@ -65,14 +65,14 @@ export function route(app: Application) {
     //     .get(diseaseController.getById)
     //     .put(diseaseController.put)
     //     .delete(diseaseController.remove)
-    // // Breeds
-    // app.route("/breeds")
-    //     .post(breedController.post)
-    //     .get(breedController.get);
-    // app.route("/breeds/:id")
-    //     .get(breedController.getById)
-    //     .put(breedController.put)
-    //     .delete(breedController.remove)
+ // Breeds
+    app.route("/breeds")
+        .post(breedController.post)
+        .get(breedController.get);
+    app.route("/breeds/:id")
+        .get(breedController.getById)
+        .put(breedController.put)
+        .delete(breedController.remove)
     // Clients-Dogs
     app.route("/clients/:id/dogs")
         .get(clientController.getDogs)
