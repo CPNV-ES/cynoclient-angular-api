@@ -1,4 +1,5 @@
-import {Table, Column, Model, ForeignKey, BelongsTo} from 'sequelize-typescript';
+import {Table, Column, Model, ForeignKey, BelongsTo, HasMany} from 'sequelize-typescript';
+import { Dog } from './dog.model';
 import {Locality} from './locality.model';
 
 @Table({modelName: "clients", timestamps: false})
@@ -27,6 +28,9 @@ export class Client extends Model<Client> {
 
     @BelongsTo(() => Locality)
     locality: Locality;
+
+    @HasMany(() => Dog)
+    dogs: Dog[];
 
 
 }
