@@ -76,6 +76,4 @@ export function route(app: Application) {
     // Clients-Dogs
     app.route("/clients/:id/dogs")
         .get(clientController.getDogs)
-    app.route("/clients/:id/dogs/:id1")
-        .get(clientController.getDog)
 }

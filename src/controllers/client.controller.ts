@@ -1,9 +1,9 @@
 import {Request, Response} from "express";
 import { ClientRequest } from "http";
-import { where } from "sequelize/types";
+import { where} from "sequelize/types";
 import {Client} from "../models/client.model";
 import { Locality } from "../models/locality.model";
-
+import { Dog } from "../models/dog.model";
 // POST
 export async function post(req: Request, res: Response) {
     try{
@@ -52,9 +52,10 @@ export async function remove(req: Request, res: Response) {
 }
 // GET DOGS
 export async function getDogs(req: Request, res: Response) {
-    res.status(200).send("DONE " + req.params.id);
-}
-// GET DOG
-export async function getDog(req: Request, res: Response) {
-    res.status(200).send("DONE " + req.params.id + req.params.id1);
+    try{
+        const ClientDogs = await Dog.findAll({where:{id_client:req.params.id}});
+        res.status(200).send(ClientDogs);
+    } catch (error){
+        res.status(404).send("Dogs not found")
+    }
 }
