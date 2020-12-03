@@ -2,6 +2,9 @@ import express from "express";
 import {route} from "./route";
 import {Sequelize} from 'sequelize-typescript';
 import bodyParser from "body-parser"
+ import dotenv from "dotenv";
+dotenv.config()
+
 
 const parser = bodyParser;
 const port = 3000;
@@ -9,10 +12,10 @@ const ip = "0.0.0.0";
 const app = express();
 
 const sequelize =  new Sequelize({
-  database: 'cynoclient',
+  database: process.env.DB_NAME,
   dialect: 'mariadb',
-  username: 'root',
-  password: 'root',
+  username: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
   // storage: ':memory:',
   // models: [__dirname + '/src/models/*.model.ts'],
   models: [__dirname + '/models/*.model.js'],
