@@ -1,8 +1,7 @@
 import {Table, Column, Model, ForeignKey, BelongsTo} from 'sequelize-typescript';
 import {Locality} from './locality.model';
 
-@Table({timestamps: false})
-
+@Table({modelName: "clients", timestamps: false})
 export class Client extends Model<Client> {
     @Column
     firstname: string;
