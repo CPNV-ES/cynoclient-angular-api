@@ -1,5 +1,6 @@
 import {Table, Column, Model, ForeignKey, HasOne, HasMany} from 'sequelize-typescript';
 import { Client } from './client.model';
+import { Service } from './service.model';
 
 @Table({modelName: "localities", timestamps: false})
 export class Locality extends Model<Locality> {
@@ -25,5 +26,8 @@ export class Locality extends Model<Locality> {
 
     @HasMany(() => Client)
     clients: Client[];
+
+    @HasMany(() => Service)
+    services: Service[];
 
 }
