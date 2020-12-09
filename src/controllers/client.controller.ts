@@ -28,7 +28,7 @@ export async function getAll(req: Request, res: Response) {
         const clients = await Client.findAll({include:Locality});
         res.status(200).send(clients);
     } catch (error){
-        res.status(500).send("Internal Server Error")
+        res.status(500).send("Clients not found")
     }
 }
 // PUT

@@ -26,7 +26,7 @@
 //         const services = await Service.findAll();
 //         res.status(200).send(services);
 //     } catch (error){
-//         res.status(500).send("Service not found")
+//         res.status(500).send("Services not found")
 //     }
 // }
 // // PUT

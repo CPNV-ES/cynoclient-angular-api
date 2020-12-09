@@ -25,7 +25,7 @@
 //         const consultations = await Consultation.findAll();
 //         res.status(200).send(consultations);
 //     } catch (error){
-//         res.status(404).send("Consultation not found")
+//         res.status(404).send("Consultations not found")
 //     }
 // }
 // // PUT

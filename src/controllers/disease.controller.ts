@@ -25,7 +25,7 @@
 //         const diseases = await Disease.findAll();
 //         res.status(200).send(diseases);
 //     } catch (error){
-//         res.status(404).send("Disease not found")
+//         res.status(404).send("Diseases not found")
 //     }
 // }
 // // PUT

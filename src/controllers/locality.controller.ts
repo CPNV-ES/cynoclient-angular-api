@@ -25,7 +25,7 @@ export async function getAll(req: Request, res: Response) {
         const localities = await Locality.findAll();
         res.status(200).send(localities);
     } catch (error){
-        res.status(404).send("Locality not found")
+        res.status(404).send("Localities not found")
     }
 }
 // PUT
