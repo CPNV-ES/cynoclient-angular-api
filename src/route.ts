@@ -4,7 +4,7 @@ import * as localityController from "./controllers/locality.controller";
 import * as dogController from "./controllers/dog.controller"
 // import * as categoryController from "./controllers/category.controller"
 // import * as consultationController from "./controllers/consultation.controller"
-// import * as diseaseController from "./controllers/disease.controller"
+import * as diseaseController from "./controllers/disease.controller"
 import * as breedController from "./controllers/breed.controller"
 import * as serviceController from "./controllers/service.controller"
 
@@ -57,14 +57,14 @@ export function route(app: Application) {
     //     .get(consultationController.get)
     //     .put(consultationController.put)
     //     .delete(consultationController.remove)
-    // // Diseases
-    // app.route("/diseases")
-    //     .post(diseaseController.post)
-    //     .get(diseaseController.getAll);
-    // app.route("/diseases/:id")
-    //     .get(diseaseController.get)
-    //     .put(diseaseController.put)
-    //     .delete(diseaseController.remove)
+    // Diseases
+    app.route("/diseases")
+        .post(diseaseController.post)
+        .get(diseaseController.getAll);
+    app.route("/diseases/:id")
+        .get(diseaseController.get)
+        .put(diseaseController.put)
+        .delete(diseaseController.remove)
  // Breeds
     app.route("/breeds")
         .post(breedController.post)
