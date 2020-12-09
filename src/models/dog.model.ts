@@ -33,12 +33,20 @@ export class Dog extends Model<Dog> {
     @BelongsTo(() => Client)
     client: Client;
 
+    // No Man's Land
     @ForeignKey(() => Breed)
     @Column({field: "breed"})
     idBreed: number;
 
-    @BelongsTo(() => Breed)
+    @BelongsTo(() => Breed, 'idBreed')
     breed: Breed;
+
+    @ForeignKey(() => Breed)
+    @Column({field: "crossbreed"})
+    idCrossBreed: number;
+
+    @BelongsTo(() => Breed, "idCrossBreed")
+    crossbreed: Breed;
 
 
 }

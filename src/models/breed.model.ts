@@ -1,5 +1,6 @@
-import {BelongsTo, Column, ForeignKey, Model, Table} from 'sequelize-typescript';
+import {BelongsTo, Column, ForeignKey, HasMany, Model, Table} from 'sequelize-typescript';
 import {Category} from "./category.model";
+import { Dog } from './dog.model';
 
 @Table({modelName: "breeds", timestamps: false})
 export class Breed extends Model<Breed> {
@@ -52,5 +53,10 @@ export class Breed extends Model<Breed> {
     @Column({field: "life_expectancy"})
     lifeExpectancy: number;
 
+    @HasMany(() => Dog, 'idBreed')
+    dogs: Dog[];
+
+    @HasMany(() => Dog, 'idCrossBreed')
+    crossdogs: Dog[];
 
 }
