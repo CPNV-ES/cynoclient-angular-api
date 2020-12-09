@@ -1,5 +1,6 @@
 import {Request, Response} from "express";
 import { where } from "sequelize/types";
+import { Locality } from "../models/locality.model";
 import {Service} from "../models/service.model";
 
  // POST
@@ -14,7 +15,7 @@ import {Service} from "../models/service.model";
 // GET BY ID
 export async function get(req: Request, res: Response) {
     try{
-        const service = await Service.findByPk(req.params.id);
+        const service = await Service.findByPk(req.params.id,{include:[Locality]});
         res.status(200).send(service);
     } catch (error){
         res.status(404).send("Service not found")
@@ -23,7 +24,7 @@ export async function get(req: Request, res: Response) {
 // GET
 export async function getAll(req: Request, res: Response) {
     try{
-        const services = await Service.findAll();
+        const services = await Service.findAll({include:[Locality]});
         res.status(200).send(services);
     } catch (error){
         res.status(500).send("Services not found")
