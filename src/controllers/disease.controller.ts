@@ -16,7 +16,7 @@
 //         const disease = await Disease.findByPk(req.params.id);
 //         res.status(200).send(disease);
 //     } catch (error){
-//         res.status(404).send("Client not found")
+//         res.status(404).send("Disease not found")
 //     }
 // }
 // // GET
@@ -25,7 +25,7 @@
 //         const diseases = await Disease.findAll();
 //         res.status(200).send(diseases);
 //     } catch (error){
-//         res.status(404).send("Client not found")
+//         res.status(404).send("Disease not found")
 //     }
 // }
 // // PUT

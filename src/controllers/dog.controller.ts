@@ -18,7 +18,7 @@ export async function get(req: Request, res: Response) {
         const dog = await Dog.findByPk(req.params.id,{include:[Client]})
         res.status(200).send(dog);
     } catch (error){
-        res.status(404).send("Client not found")
+        res.status(404).send("Dog not found")
     }
 }
 // GET
@@ -27,7 +27,7 @@ export async function getAll(req: Request, res: Response) {
         const dogs = await Dog.findAll({include:[Client,Breed]})
         res.status(200).send(dogs);
     } catch (error){
-        res.status(404).send("Client not found")
+        res.status(404).send("Dog not found")
     }
 }
 // PUT

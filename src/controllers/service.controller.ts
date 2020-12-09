@@ -17,7 +17,7 @@
 //         const service = await Service.findByPk(req.params.id);
 //         res.status(200).send(service);
 //     } catch (error){
-//         res.status(404).send("Client not found")
+//         res.status(404).send("Service not found")
 //     }
 // }
 // // GET
@@ -26,7 +26,7 @@
 //         const services = await Service.findAll();
 //         res.status(200).send(services);
 //     } catch (error){
-//         res.status(500).send("Internal Server Error")
+//         res.status(500).send("Service Server Error")
 //     }
 // }
 // // PUT
