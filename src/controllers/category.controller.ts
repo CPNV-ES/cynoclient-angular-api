@@ -17,7 +17,7 @@
 //         const category = await Category.findByPk(req.params.id)
 //         res.status(200).send(category);
 //     } catch (error){
-//         res.status(404).send("Client not found")
+//         res.status(404).send("Category not found")
 //     }
 // }
 // // GET
@@ -26,7 +26,7 @@
 //         const categories = await Category.findAll()
 //         res.status(200).send(categories);
 //     } catch (error){
-//         res.status(404).send("Client not found")
+//         res.status(404).send("Categories not found")
 //     }
 // }
 // // PUT

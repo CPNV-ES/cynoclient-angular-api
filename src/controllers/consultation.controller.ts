@@ -16,7 +16,7 @@
 //         const consultation = await Consultation.findByPk(req.params.id);
 //         res.status(200).send(consultation);
 //     } catch (error){
-//         res.status(404).send("Client not found")
+//         res.status(404).send("Consultation not found")
 //     }
 // }
 // // GET
@@ -25,7 +25,7 @@
 //         const consultations = await Consultation.findAll();
 //         res.status(200).send(consultations);
 //     } catch (error){
-//         res.status(404).send("Client not found")
+//         res.status(404).send("Consultations not found")
 //     }
 // }
 // // PUT

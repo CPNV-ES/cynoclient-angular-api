@@ -16,7 +16,7 @@ export async function get(req: Request, res: Response) {
         const locality = await Locality.findByPk(req.params.id);
         res.status(200).send(locality);
     } catch (error){
-        res.status(404).send("Client not found")
+        res.status(404).send("Locality not found")
     }
 }
 // GET
@@ -25,7 +25,7 @@ export async function getAll(req: Request, res: Response) {
         const localities = await Locality.findAll();
         res.status(200).send(localities);
     } catch (error){
-        res.status(404).send("Client not found")
+        res.status(404).send("Localities not found")
     }
 }
 // PUT

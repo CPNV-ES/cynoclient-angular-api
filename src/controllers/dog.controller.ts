@@ -29,7 +29,7 @@ export async function getAll(req: Request, res: Response) {
         const dogs = await Dog.findAll({include:[Client,{model:Breed, as : 'breed'}, {model:Breed,as : 'crossbreed'}]})
         res.status(200).send(dogs);
     } catch (error){
-        res.status(404).send("DOGS not found")
+        res.status(404).send("Dogs not found")
     }
 }
 // PUT
