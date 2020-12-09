@@ -14,7 +14,7 @@ export async function post(req: Request, res: Response) {
     }
 }
 // GET BY ID
-export async function getById(req: Request, res: Response) {
+export async function get(req: Request, res: Response) {
     try{
         const client = await Client.findByPk(req.params.id,{include:Locality});
         res.status(200).send(client);
@@ -23,7 +23,7 @@ export async function getById(req: Request, res: Response) {
     }
 }
 // GET
-export async function get(req: Request, res: Response) {
+export async function getAll(req: Request, res: Response) {
     try{
         const clients = await Client.findAll({include:Locality});
         res.status(200).send(clients);

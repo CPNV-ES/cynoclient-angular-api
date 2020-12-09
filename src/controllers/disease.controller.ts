@@ -11,7 +11,7 @@
 //     }
 // }
 // // GET BY ID
-// export async function getById(req: Request, res: Response) {
+// export async function get(req: Request, res: Response) {
 //     try{
 //         const disease = await Disease.findByPk(req.params.id);
 //         res.status(200).send(disease);
@@ -20,7 +20,7 @@
 //     }
 // }
 // // GET
-// export async function get(req: Request, res: Response) {
+// export async function getAll(req: Request, res: Response) {
 //     try{
 //         const diseases = await Disease.findAll();
 //         res.status(200).send(diseases);

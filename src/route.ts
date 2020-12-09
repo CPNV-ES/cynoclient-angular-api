@@ -12,65 +12,65 @@ export function route(app: Application) {
     // Clients
     app.route("/clients")
         .post(clientController.post)
-        .get(clientController.get);
+        .get(clientController.getAll);
     app.route("/clients/:id")
-        .get(clientController.getById)
+        .get(clientController.get)
         .put(clientController.put)
         .delete(clientController.remove);
     // Localites
     app.route("/localities")
         .post(localityController.post)
-        .get(localityController.get);
+        .get(localityController.getAll);
     app.route("/localities/:id")
-        .get(localityController.getById)
+        .get(localityController.get)
         .put(localityController.put)
         .delete(localityController.remove)
     // // Services
     // app.route("/services")
     //     .post(serviceController.post)
-    //     .get(serviceController.get);
+    //     .get(serviceController.getAll);
     // app.route("/services/:id")
-    //     .get(serviceController.getById)
+    //     .get(serviceController.get)
     //     .put(serviceController.put)
     //     .delete(serviceController.remove)
     // Dogs
     app.route("/dogs")
         .post(dogController.post)
-        .get(dogController.get)
+        .get(dogController.getAll)
      app.route("/dogs/:id")
-        .get(dogController.getById)
+        .get(dogController.get)
         .put(dogController.put)
     //   .delete(dogController.remove)
     // // Categories
     // app.route("/categories")
     //     .post(categoryController.post)
-    //     .get(categoryController.get);
+    //     .get(categoryController.getAll);
     // app.route("/categories/:id")
-    //     .get(categoryController.getById)
+    //     .get(categoryController.get)
     //     .put(categoryController.put)
     //     .delete(categoryController.remove)
     // // Consultations
     // app.route("/consultations")
     //     .post(consultationController.post)
-    //     .get(consultationController.get);
+    //     .get(consultationController.getAll);
     // app.route("/consultations/:id")
-    //     .get(consultationController.getById)
+    //     .get(consultationController.get)
     //     .put(consultationController.put)
     //     .delete(consultationController.remove)
     // // Diseases
     // app.route("/diseases")
     //     .post(diseaseController.post)
-    //     .get(diseaseController.get);
+    //     .get(diseaseController.getAll);
     // app.route("/diseases/:id")
-    //     .get(diseaseController.getById)
+    //     .get(diseaseController.get)
     //     .put(diseaseController.put)
     //     .delete(diseaseController.remove)
  // Breeds
     app.route("/breeds")
         .post(breedController.post)
-        .get(breedController.get);
+        .get(breedController.getAll);
     app.route("/breeds/:id")
-        .get(breedController.getById)
+        .get(breedController.get)
         .put(breedController.put)
         .delete(breedController.remove)
     // Clients-Dogs

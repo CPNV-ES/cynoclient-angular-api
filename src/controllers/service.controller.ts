@@ -12,7 +12,7 @@
 //     }
 // }
 // // GET BY ID
-// export async function getById(req: Request, res: Response) {
+// export async function get(req: Request, res: Response) {
 //     try{
 //         const service = await Service.findByPk(req.params.id);
 //         res.status(200).send(service);
@@ -21,7 +21,7 @@
 //     }
 // }
 // // GET
-// export async function get(req: Request, res: Response) {
+// export async function getAll(req: Request, res: Response) {
 //     try{
 //         const services = await Service.findAll();
 //         res.status(200).send(services);

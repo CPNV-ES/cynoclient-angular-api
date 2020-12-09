@@ -13,7 +13,7 @@ export async function post(req: Request, res: Response) {
     }
 }
 // GET BY ID
-export async function getById(req: Request, res: Response) {
+export async function get(req: Request, res: Response) {
     try{
         const dog = await Dog.findByPk(req.params.id,{include:[Client]})
         res.status(200).send(dog);
@@ -22,7 +22,7 @@ export async function getById(req: Request, res: Response) {
     }
 }
 // GET
-export async function get(req: Request, res: Response) {
+export async function getAll(req: Request, res: Response) {
     try{
         const dogs = await Dog.findAll({include:[Client,Breed]})
         res.status(200).send(dogs);
