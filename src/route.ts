@@ -6,7 +6,7 @@ import * as dogController from "./controllers/dog.controller"
 // import * as consultationController from "./controllers/consultation.controller"
 // import * as diseaseController from "./controllers/disease.controller"
 import * as breedController from "./controllers/breed.controller"
-// import * as serviceController from "./controllers/service.controller"
+import * as serviceController from "./controllers/service.controller"
 
 export function route(app: Application) {
     // Clients
@@ -25,14 +25,14 @@ export function route(app: Application) {
         .get(localityController.get)
         .put(localityController.put)
         .delete(localityController.remove)
-    // // Services
-    // app.route("/services")
-    //     .post(serviceController.post)
-    //     .get(serviceController.getAll);
-    // app.route("/services/:id")
-    //     .get(serviceController.get)
-    //     .put(serviceController.put)
-    //     .delete(serviceController.remove)
+    // Services
+    app.route("/services")
+        .post(serviceController.post)
+        .get(serviceController.getAll);
+    app.route("/services/:id")
+        .get(serviceController.get)
+        .put(serviceController.put)
+        .delete(serviceController.remove)
     // Dogs
     app.route("/dogs")
         .post(dogController.post)
