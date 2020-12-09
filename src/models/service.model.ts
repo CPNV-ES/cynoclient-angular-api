@@ -19,7 +19,10 @@ export class Service extends Model<Service> {
     @Column
     street: number;
 
+    @ForeignKey(() => Locality)
     @Column({field: "id_locality"})
-    idLocality: string;
+    idLocality: number;
 
+    @BelongsTo(() => Locality)
+    locality: Locality;
 }
