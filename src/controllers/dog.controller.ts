@@ -1,5 +1,7 @@
+import { Console } from "console";
 import {Request, Response} from "express";
 import { Breed } from "../models/breed.model";
+import { Category } from "../models/category.model";
 import { Client } from "../models/client.model";
 import {Dog} from "../models/dog.model";
 
@@ -15,19 +17,19 @@ export async function post(req: Request, res: Response) {
 // GET BY ID
 export async function get(req: Request, res: Response) {
     try{
-        const dog = await Dog.findByPk(req.params.id,{include:[Client]})
+        const dog = await Dog.findByPk(req.params.id,{include:[Client,{model:Breed, as : 'breed'}, {model:Breed,as : 'crossbreed'}]})
         res.status(200).send(dog);
     } catch (error){
-        res.status(404).send("Client not found")
+        res.status(404).send("Dog not found")
     }
 }
 // GET
 export async function getAll(req: Request, res: Response) {
     try{
-        const dogs = await Dog.findAll({include:[Client,Breed]})
+        const dogs = await Dog.findAll({include:[Client,{model:Breed, as : 'breed'}, {model:Breed,as : 'crossbreed'}]})
         res.status(200).send(dogs);
     } catch (error){
-        res.status(404).send("Client not found")
+        res.status(404).send("DOGS not found")
     }
 }
 // PUT

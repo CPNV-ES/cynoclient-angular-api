@@ -8,7 +8,7 @@ import { Dog } from "../models/dog.model";
 export async function post(req: Request, res: Response) {
     try{
         const client = await Client.create(req.body)
-        res.status(201).send("DONE");
+        res.status(201).send(client);
     } catch (error){
         res.status(500).send("Internal Server Error")
     }
