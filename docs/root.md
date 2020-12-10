@@ -7,20 +7,28 @@
 | DELETE | https://example.com/localities/{id} | delete locality |
 
 # Clients
-| Verbe  | URL                              | Comments      |
-| ------ | -------------------------------- | ------------- |
-| POST   | https://example.com/clients      | add client    |
-| GET    | https://example.com/clients/{id} | show client   |
-| PUT    | https://example.com/clients/{id} | update client |
-| DELETE | https://example.com/clients/{id} | delete client |
+| Verbe  | URL                                       | Comments                   |
+| ------ | ----------------------------------------- | -------------------------- |
+| POST   | https://example.com/clients               | add client                 |
+| GET    | https://example.com/clients/{id}          | show client                |
+| PUT    | https://example.com/clients/{id}          | update client              |
+| DELETE | https://example.com/clients/{id}          | delete client              |
+| GET    | https://example.com/clients/{id}/services | get all services by client |
+
+# Clients-Dogs
+| Verbe | URL                                        | Comments                           |
+| ----- | ------------------------------------------ | ---------------------------------- |
+| GET   | https://example.com/clients/{id}/dogs      | show dogs of a client              |
+| GET   | https://example.com/clients/{id}/dogs/{id} | Get one particular dog of a client |
 
 # Dogs
-| Verbe  | URL                           | Comments   |
-| ------ | ----------------------------- | ---------- |
-| POST   | https://example.com/dogs      | add dog    |
-| GET    | https://example.com/dogs/{id} | show dog   |
-| PUT    | https://example.com/dogs/{id} | update dog |
-| DELETE | https://example.com/dogs/{id} | delete dog |
+| Verbe  | URL                                     | Comments                |
+| ------ | --------------------------------------- | ----------------------- |
+| POST   | https://example.com/dogs                | add dog                 |
+| GET    | https://example.com/dogs/{id}           | show dog                |
+| PUT    | https://example.com/dogs/{id}           | update dog              |
+| DELETE | https://example.com/dogs/{id}           | delete dog              |
+| GET    | https://example.com/dogs/{id}/diseases/ | get all diseases by dog |
 
 # Services
 | Verbe  | URL                               | Comments       |
@@ -61,9 +69,3 @@
 | GET    | https://example.com/diseases/{id} | show disease   |
 | PUT    | https://example.com/diseases/{id} | update disease |
 | DELETE | https://example.com/diseases/{id} | delete disease |
-
-# Clients-Dogs
-| Verbe | URL                                        | Comments                           |
-| ----- | ------------------------------------------ | ---------------------------------- |
-| GET   | https://example.com/clients/{id}/dogs      | show dogs of a client              |
-| GET   | https://example.com/clients/{id}/dogs/{id} | Get one particular dog of a client |

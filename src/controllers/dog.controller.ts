@@ -4,6 +4,7 @@ import { Breed } from "../models/breed.model";
 import { Category } from "../models/category.model";
 import { Client } from "../models/client.model";
 import {Dog} from "../models/dog.model";
+import {Disease} from "../models/disease.model";
 
 // POST
 export async function post(req: Request, res: Response) {
@@ -46,6 +47,21 @@ export async function remove(req: Request, res: Response) {
     try{
         const dog = await Dog.destroy({where:{id:req.params.id}})
         res.status(200).send("DONE");
+    }catch (error){
+        res.status(500).send("Internal Server Error");
+    }
+}
+// GET DISEASES
+export async function getDiseases(req: Request, res: Response) {
+    try{
+        const DogDiseases = await Disease.findAll({
+                                        include: [{
+                                            model: Dog,
+                                            as: "id_dog",
+                                            where: {id_dog:req.params.id}
+                                        }]
+                                    });
+        res.status(200).send(DogDiseases);
     }catch (error){
         res.status(500).send("Internal Server Error");
     }

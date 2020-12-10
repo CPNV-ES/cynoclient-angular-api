@@ -65,15 +65,21 @@ export function route(app: Application) {
         .get(diseaseController.get)
         .put(diseaseController.put)
         .delete(diseaseController.remove)
- // Breeds
+    // Breeds
     app.route("/breeds")
         .post(breedController.post)
         .get(breedController.getAll);
     app.route("/breeds/:id")
         .get(breedController.get)
         .put(breedController.put)
-        .delete(breedController.remove)
+        .delete(breedController.remove);
     // Clients-Dogs
     app.route("/clients/:id/dogs")
-        .get(clientController.getDogs)
+        .get(clientController.getDogs);
+    // Clients-Services
+    app.route("/clients/:id/services")
+        .get(clientController.getServices);
+    // Dogs-Diseases
+    app.route("/dogs/:id/diseases/")
+        .get(dogController.getDiseases);
 }
