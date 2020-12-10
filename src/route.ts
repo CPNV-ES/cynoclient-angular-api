@@ -2,7 +2,7 @@ import {Application} from "express"
 import * as clientController from "./controllers/client.controller";
 import * as localityController from "./controllers/locality.controller";
 import * as dogController from "./controllers/dog.controller"
-// import * as categoryController from "./controllers/category.controller"
+import * as categoryController from "./controllers/category.controller"
 import * as consultationController from "./controllers/consultation.controller"
 import * as diseaseController from "./controllers/disease.controller"
 import * as breedController from "./controllers/breed.controller"
@@ -41,14 +41,14 @@ export function route(app: Application) {
         .get(dogController.get)
         .put(dogController.put)
         .delete(dogController.remove)
-    // // Categories
-    // app.route("/categories")
-    //     .post(categoryController.post)
-    //     .get(categoryController.getAll);
-    // app.route("/categories/:id")
-    //     .get(categoryController.get)
-    //     .put(categoryController.put)
-    //     .delete(categoryController.remove)
+    // Categories
+    app.route("/categories")
+        .post(categoryController.post)
+        .get(categoryController.getAll);
+    app.route("/categories/:id")
+        .get(categoryController.get)
+        .put(categoryController.put)
+        .delete(categoryController.remove)
     // // Consultations
     app.route("/consultations")
         .post(consultationController.post)
