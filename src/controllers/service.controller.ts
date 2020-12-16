@@ -2,6 +2,9 @@ import {Request, Response} from "express";
 import { where } from "sequelize/types";
 import { Locality } from "../models/locality.model";
 import {Service} from "../models/service.model";
+import {Client} from "../models/client.model";
+import {Dog} from "../models/dog.model";
+import {ClientService} from "../models/clientservice.model";
 
  // POST
  export async function post(req: Request, res: Response) {
@@ -24,7 +27,7 @@ export async function get(req: Request, res: Response) {
 // GET
 export async function getAll(req: Request, res: Response) {
     try{
-        const services = await Service.findAll({include:[Locality]});
+        const services = await Service.findAll({include:[Locality, {model: Dog, include: [Client]}]});
         res.status(200).send(services);
     } catch (error){
         res.status(500).send("Services not found")

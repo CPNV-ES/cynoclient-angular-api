@@ -3,6 +3,7 @@ import { Consultation } from './consultation.model';
 import {Locality} from './locality.model';
 import {ClientService} from "./clientservice.model";
 import {Client} from "./client.model";
+import {Dog} from "./dog.model";
 
 @Table({modelName: "services",timestamps: false})
 
@@ -34,4 +35,7 @@ export class Service extends Model<Service> {
 
     @BelongsToMany(() => Client, () => ClientService)
     clients: Client[];
+
+    @BelongsToMany(() => Dog, () => ClientService)
+    dogs: Dog[];
 }
