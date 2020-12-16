@@ -1,4 +1,6 @@
-import {Table, Column, Model, ForeignKey, BelongsTo} from 'sequelize-typescript';
+import {Table, Column, Model, BelongsToMany} from 'sequelize-typescript';
+import {Dog} from "./dog.model";
+import {DogDisease} from "./dogdisease.model";
 
 @Table({modelName: "diseases",timestamps: false})
 
@@ -24,4 +26,6 @@ export class Disease extends Model<Disease> {
     @Column
     zoonosis: number;
 
+    @BelongsToMany(() => Dog, () => DogDisease)
+    dogs: Dog[];
 }

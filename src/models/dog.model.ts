@@ -3,6 +3,8 @@ import { Breed } from './breed.model';
 import { Client } from './client.model';
 import {Service} from "./service.model";
 import {ClientService} from "./clientservice.model";
+import {DogDisease} from "./dogdisease.model";
+import {Disease} from "./disease.model";
 
 @Table({modelName: "dogs",timestamps: false})
 
@@ -51,4 +53,8 @@ export class Dog extends Model<Dog> {
 
     @BelongsToMany(() => Service, () => ClientService)
     services: Service[];
+
+    @BelongsToMany(() => Disease, () => DogDisease)
+    diseases: Disease[];
+
 }

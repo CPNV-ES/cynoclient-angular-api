@@ -56,8 +56,7 @@ export async function getDiseases(req: Request, res: Response) {
         const DogDiseases = await Disease.findAll({
                                         include: [{
                                             model: Dog,
-                                            as: "id_dog",
-                                            where: {id_dog:req.params.id}
+                                            where: {id:req.params.id}
                                         }]
                                     });
         res.status(200).send(DogDiseases);
