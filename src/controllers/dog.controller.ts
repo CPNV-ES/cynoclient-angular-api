@@ -1,10 +1,9 @@
-import { Console } from "console";
 import {Request, Response} from "express";
 import { Breed } from "../models/breed.model";
-import { Category } from "../models/category.model";
 import { Client } from "../models/client.model";
 import {Dog} from "../models/dog.model";
 import {Disease} from "../models/disease.model";
+import {Service} from "../models/service.model";
 
 // POST
 export async function post(req: Request, res: Response) {
@@ -18,7 +17,7 @@ export async function post(req: Request, res: Response) {
 // GET BY ID
 export async function get(req: Request, res: Response) {
     try{
-        const dog = await Dog.findByPk(req.params.id,{include:[Client,{model:Breed, as : 'breed'}, {model:Breed,as : 'crossbreed'}]})
+        const dog = await Dog.findByPk(req.params.id,{include:[Client, Service, {model:Breed, as : 'breed'}, {model:Breed,as : 'crossbreed'}]})
         res.status(200).send(dog);
     } catch (error){
         res.status(404).send("Dog not found")
@@ -64,5 +63,15 @@ export async function getDiseases(req: Request, res: Response) {
         res.status(200).send(DogDiseases);
     }catch (error){
         res.status(500).send("Internal Server Error");
+    }
+}
+// GET SERVICES
+export async function getServices(req: Request, res: Response) {
+    try{
+        const dogs = await Dog.findByPk(req.params.id,{include:[Service, Client]});
+        const dogsServices = dogs.services;
+        res.status(200).send(dogsServices);
+    } catch (error){
+        res.status(404).send("Services not found")
     }
 }
