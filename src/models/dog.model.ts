@@ -1,6 +1,8 @@
-import {Table, Column, Model, ForeignKey, BelongsTo} from 'sequelize-typescript';
+import {Table, Column, Model, ForeignKey, BelongsTo, BelongsToMany} from 'sequelize-typescript';
 import { Breed } from './breed.model';
 import { Client } from './client.model';
+import {Service} from "./service.model";
+import {ClientService} from "./clientservice.model";
 
 @Table({modelName: "dogs",timestamps: false})
 
@@ -33,7 +35,6 @@ export class Dog extends Model<Dog> {
     @BelongsTo(() => Client)
     client: Client;
 
-    // No Man's Land
     @ForeignKey(() => Breed)
     @Column({field: "breed"})
     idBreed: number;
@@ -48,5 +49,6 @@ export class Dog extends Model<Dog> {
     @BelongsTo(() => Breed, "idCrossBreed")
     crossbreed: Breed;
 
-
+    @BelongsToMany(() => Service, () => ClientService)
+    services: Service[];
 }

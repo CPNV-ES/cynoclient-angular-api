@@ -4,7 +4,8 @@ import { Model, where} from "sequelize/types";
 import {Client} from "../models/client.model";
 import { Locality } from "../models/locality.model";
 import { Dog } from "../models/dog.model";
-import { Service } from "../models/service.model";
+import {ClientService} from "../models/clientservice.model";
+import {Service} from "../models/service.model";
 // POST
 export async function post(req: Request, res: Response) {
     try{
@@ -54,8 +55,8 @@ export async function remove(req: Request, res: Response) {
 // GET DOGS
 export async function getDogs(req: Request, res: Response) {
     try{
-        const ClientDogs = await Dog.findAll({where:{id_client:req.params.id}});
-        res.status(200).send(ClientDogs);
+        const clientDogs = await Dog.findAll({where:{id_client:req.params.id}});
+        res.status(200).send(clientDogs);
     } catch (error){
         res.status(404).send("Dogs not found")
     }
@@ -63,14 +64,9 @@ export async function getDogs(req: Request, res: Response) {
 // GET SERVICES
 export async function getServices(req: Request, res: Response) {
     try{
-        const ClientServices = await Service.findAll({
-                                        include: [{
-                                            model: Client,
-                                            as: "id_client",
-                                            where: {id_client:req.params.id}
-                                        }]
-                                    });
-        res.status(200).send(ClientServices);
+        const client = await Client.findByPk(req.params.id,{include:[Service]});
+        const clientServices = client.services;
+        res.status(200).send(clientServices);
     } catch (error){
         res.status(404).send("Services not found")
     }
