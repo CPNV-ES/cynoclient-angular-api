@@ -1,8 +1,9 @@
 import express from "express";
 import {route} from "./route";
 import {Sequelize} from 'sequelize-typescript';
+import cors from "cors";
 import bodyParser from "body-parser"
- import dotenv from "dotenv";
+import dotenv from "dotenv";
 dotenv.config()
 
 
@@ -29,6 +30,7 @@ sequelize.sync();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cors());
 
 route(app);
 
