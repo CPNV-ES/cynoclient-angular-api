@@ -18,7 +18,7 @@ import {ClientService} from "../models/clientservice.model";
 // GET BY ID
 export async function get(req: Request, res: Response) {
     try{
-        const service = await Service.findByPk(req.params.id,{include:[Locality]});
+        const service = await Service.findByPk(req.params.id,{include:[Locality, {model: Dog, include: [Client]}]});
         res.status(200).send(service);
     } catch (error){
         res.status(404).send("Service not found")
