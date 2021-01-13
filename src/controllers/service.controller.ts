@@ -4,6 +4,7 @@ import { Locality } from "../models/locality.model";
 import {Service} from "../models/service.model";
 import {Client} from "../models/client.model";
 import {Dog} from "../models/dog.model";
+import {Consultation} from "../models/consultation.model";
 import {ClientService} from "../models/clientservice.model";
 
  // POST
@@ -18,7 +19,7 @@ import {ClientService} from "../models/clientservice.model";
 // GET BY ID
 export async function get(req: Request, res: Response) {
     try{
-        const service = await Service.findByPk(req.params.id,{include:[Locality, {model: Dog, include: [Client]}]});
+        const service = await Service.findByPk(req.params.id,{include:[Consultation, Locality, {model: Dog, include: [Client]}]});
         res.status(200).send(service);
     } catch (error){
         res.status(404).send("Service not found")
